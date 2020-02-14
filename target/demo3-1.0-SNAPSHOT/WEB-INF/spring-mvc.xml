@@ -15,7 +15,12 @@
     <mvc:default-servlet-handler/>
 
     <!-- 设置使用注解的类所在的包 -->
-    <context:component-scan base-package="com.chillax.controller" />
+    <context:component-scan base-package="com.chillax" />
+
+    <!--自定义拦截器-->
+    <mvc:interceptors>
+        <bean class="com.chillax.filter.AuthorizationInterceptor"></bean>
+    </mvc:interceptors>
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -33,5 +38,6 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
+
 
 </beans>
